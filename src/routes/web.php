@@ -1,18 +1,25 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\AttendanceRequestController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/register', [UserController::class, 'showRegisterForm']);
+Route::post('/register', [UserController::class, 'register']);
+Route::get('/login', [UserController::class, 'showloginForm'])->name('login');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('auth')->group(function () {
+    Route::get('/', [AttendanceController::class, 'index'])->name('attendance.index');
+
+    Route::post('/clock_in', [AttendanceController::class, 'clockIn'])
+        ->name('clock_in');
+
+    Route::post('/clock_out', [AttendanceController::class, 'clockOut'])
+        ->name('clock_out');
+
+    Route::post('/break_in', [AttendanceController::class, 'breakIn'])
+        ->name('break_in');
+
+    Route::post('/break_out', [AttendanceController::class, 'breakOut'])
+        ->name('break_out');
 });
