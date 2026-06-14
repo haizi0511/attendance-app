@@ -54,7 +54,7 @@ php artisan migrate:fresh --seed<br>
 ・JavaScript<br>
 
 ## ER図
-<img width="682" height="584" alt="ER図" src="https://github.com/user-attachments/assets/e249f049-0fc8-43d5-ad2e-223f5ac9574e" />
+<img width="1050" height="608" alt="{95F45429-4104-4B9C-ACF8-F6EE0BB1D81C}" src="https://github.com/user-attachments/assets/90e593ba-435c-470a-a59f-6d724a38dc43" />
 
 ## URL
 ・一般ユーザーログイン：http://localhost/login<br>
