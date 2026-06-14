@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash; 
 use Illuminate\Support\Str;
 
 class UserFactory extends Factory
@@ -17,10 +18,19 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'password' => Hash::make('password'),
+            'role' => false,
         ];
+    }
+
+    // 管理者ユーザー
+    public function admin()
+    {
+        return $this->state(fn () => [
+            'role' => true,
+            'email' => 'admin@example.com',
+            'password' => Hash::make('password'),
+        ]);
     }
 
     /**
