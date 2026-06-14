@@ -1,7 +1,20 @@
+.user-header {
+    width: 100%;
+    background: #000;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-header__logo {
+    height: 32px;
+}
+
 .login-form__content {
     margin: 0 auto;
-    padding: 10px ;
-    width: 80%;
+    padding: 70px ;
+    width: 100%;
 }
 
 .login-form__heading {
@@ -48,7 +61,7 @@
     height: 50px;
     border: none;
     border-radius: 3px;
-    background: #ff5555;
+    background: #000;
     color: #fff;
     cursor: pointer;
 }

@@ -1,0 +1,117 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: #f0eff2;
+    color: #111827;
+}
+
+.header {
+    width: 100%;
+    background-color: #000;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header {
+    width: 100%;
+    background: #000;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header__logo {
+    height: 32px;
+}
+
+.admin-header__nav {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.admin-header__nav a,
+.logout-btn {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.admin-header__nav a:hover,
+.logout-btn:hover {
+    background: #333;
+}
+
+.logout-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+    padding: 6px 12px;
+    line-height: 1;
+}
+
+.staff-list {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.staff-list__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+.staff-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-weight: bold;
+    color: #737373;
+}
+
+.staff-table th {
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+
+.staff-table td {
+    padding: 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.staff-table__detail-link {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.staff-table__detail-link:hover {
+    text-decoration: underline;
+}
+
+/* レスポンシブ*/
+@media (max-width: 600px) {
+    .staff-table th,
+    .staff-table td {
+        padding: 10px;
+        font-size: 13px;
+    }
+}

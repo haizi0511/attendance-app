@@ -5,6 +5,11 @@
 @endsection
 
 @section('content')
+<header class="user-header">
+    <div class="user-header__left">
+        <img src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt="COACHTECH" class="user-header__logo">
+    </div>
+</header>
 <div class="login-form__content">
     <div class="login-form__heading">
         <h2>ログイン</h2>

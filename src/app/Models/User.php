@@ -34,6 +34,10 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $casts = [
+        'role' => 'integer',
+    ];
+
     /**
      * The attributes that should be cast.
      *
@@ -44,4 +48,8 @@ class User extends Authenticatable
         return $this->hasMany(Attendance::class);
     }
 
+    public function isAdmin()
+    {
+        return $this->role === 1;
+    }
 }

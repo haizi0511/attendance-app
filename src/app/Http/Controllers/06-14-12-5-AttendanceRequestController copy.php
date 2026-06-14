@@ -88,8 +88,4 @@ class AttendanceRequestController extends Controller
         return redirect()
             ->route('admin.request.show', $id);
     }
-
-
-
-
 }

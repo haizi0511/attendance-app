@@ -4,49 +4,70 @@
 <link rel="stylesheet" href="{{ asset('css/user/attendance.css') }}">
 @endsection
 
-@include('user.header_button')
-
 @section('content')
+<header class="user-header">
+    <div class="user-header__left">
+        <img src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt="COACHTECH" class="user-header__logo">
+    </div>
+
+    <ul class="user-header__nav">
+        <li><a href="/">勤怠</a></li>
+        <li><a href="/attendance/list">勤怠一覧</a></li>
+        <li><a href="/attendance_request/list">申請</a></li>
+        <li>
+            <form action="/logout" method="post">
+                @csrf
+                <button class="logout-btn">ログアウト</button>
+            </form>
+        </li>
+    </ul>
+</header>
 <div class="attendance-container">
-    <div class="attendance-card">
+    <di class="attendance-card">
+        {{-- ① ステータス --}}
+        @include('user.status_text')
 
-    <div id="date" class="date"></div>
-        <div id="time" class="time"></div>
+        {{-- ② 日付 --}} {{-- ③ 時刻 --}}
+        <div id="date" class="date"></div>
+                <div id="time" class="time"></div>
 
-        <div class="status">
-            @if (!$attendance)
-                <p class="status-text">勤務外</p>
-        </div>
-            @include('user.time')
+                <script>
+                    function updateClock() {
+                        const now = new Date();
 
-                <form action="{{ route('clock_in') }}" method="POST">
-                    @csrf
-                    <button class="btn btn-primary">出勤</button>
-                </form>
-                @elseif ($attendance->status === 1)
-                    <p class="status-text">出勤中</p>
+                        // 日付
+                        const year = now.getFullYear();
+                        const month = now.getMonth() + 1;
+                        const day = now.getDate();
 
-                    <form action="{{ route('clock_out') }}" method="POST">
-                        @csrf
-                        <button class="btn btn-danger">退勤</button>
-                    </form>
+                        // 曜日
+                        const weekdays = ['日', '月', '火', '水', '木', '金', '土'];
+                        const weekday = weekdays[now.getDay()];
 
-                    <form action="{{ route('break_in') }}" method="POST">
-                        @csrf
-                        <button class="btn btn--warning">休憩入</button>
-                    </form>
+                        // 時刻
+                        const hour = String(now.getHours()).padStart(2, '0');
+                        const minute = String(now.getMinutes()).padStart(2, '0');
 
-                @elseif ($attendance->status === 2)
-                    <p class="status-text">休憩中</p>
+                        // 表示
+                        document.getElementById('date').textContent =
+                            `${year}年${month}月${day}日（${weekday}）`;
 
-                    <form action="{{ route('break_out') }}" method="POST">
-                        @csrf
-                        <button class="btn btn--warning">休憩戻</button>
-                    </form>
+                        document.getElementById('time').textContent =
+                            `${hour}:${minute}`;
+                    }
 
-                @elseif ($attendance->status === 3)
-                    <p class="status-text">退勤済</p>
-            @endif
+                    setInterval(updateClock, 1000);
+                    updateClock();
+                </script>
+
+        {{-- ④ ボタン --}}
+        @include('user.status_actions')
+
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
     </div>
 </div>
 @endsection

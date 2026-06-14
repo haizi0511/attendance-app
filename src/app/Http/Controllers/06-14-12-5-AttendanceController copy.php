@@ -44,7 +44,7 @@ class AttendanceController extends Controller
     public function breakIn()
     {
         $attendance = Attendance::where('user_id', auth()->id())
-            ->whereDate('clock_in', Carbon::today())
+            ->whereDate('clock_in', today())
             ->first();
 
         // 出勤していない場合
@@ -69,7 +69,7 @@ class AttendanceController extends Controller
     public function breakOut()
     {
         $attendance = Attendance::where('user_id', auth()->id())
-            ->whereDate('clock_in', Carbon::today())
+            ->whereDate('clock_in', today())
             ->first();
 
         // 休憩中でなければ終了できない
@@ -99,7 +99,7 @@ class AttendanceController extends Controller
     public function clockOut()
     {
         $attendance = Attendance::where('user_id', auth()->id())
-            ->whereDate('clock_in', Carbon::today())
+            ->whereDate('clock_in', today())
             ->first();
 
         // 勤務中 or 休憩中でなければ退勤できない
@@ -148,7 +148,6 @@ class AttendanceController extends Controller
             'attendance' => $attendance,
         ]);
     }
-
 
     public function detail($id)
     {
@@ -217,6 +216,7 @@ class AttendanceController extends Controller
             'attendances'
         ));
     }
+
 
     public function admin_detail($id)
     {

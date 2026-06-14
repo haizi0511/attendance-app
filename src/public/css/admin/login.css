@@ -1,0 +1,59 @@
+.login-form__content {
+    max-width: 360px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.login-form__heading h2 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    color: #222;
+}
+
+.form__label--item {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form__input--text input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #fff;
+}
+
+.form__input--text input:focus {
+    border-color: #000;
+    outline: none;
+}
+
+.form__error .error-message {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #d60000;
+}
+
+.form__button {
+    margin-top: 28px;
+}
+
+.form__button-submit {
+    width: 100%;
+    padding: 12px 0;
+    background: #000;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form__button-submit:hover {
+    opacity: 0.85;
+}

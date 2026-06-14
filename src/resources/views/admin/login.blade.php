@@ -9,7 +9,7 @@
     <div class="login-form__heading">
         <h2>管理者ログイン</h2>
     </div>
-    <form class="form" action="/login" method="post">
+    <form class="form" action="/admin/login" method="post">
         @csrf
         <div class="form__group">
         <div class="form__group-title">
@@ -21,7 +21,7 @@
             </div>
             <div class="form__error">
             @error('email')
-            {{ $message }}
+            <div class="error-message">{{ $message }}</div>
             @enderror
             </div>
         </div>
@@ -36,7 +36,7 @@
             </div>
             <div class="form__error">
             @error('password')
-            {{ $message }}
+                <div class="error-message">{{ $message }}</div>
             @enderror
             </div>
         </div>

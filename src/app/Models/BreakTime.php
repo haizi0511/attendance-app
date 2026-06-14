@@ -13,4 +13,13 @@ class BreakTime extends Model
         'break_end',
         ];
 
+    public function attendances()
+    {
+        return $this->belongsToMany(Attendance::class, 'attendances_breaks');
+    }
+
+    protected $casts = [
+        'break_start' => 'datetime',
+        'break_end' => 'datetime',
+        ];
 }

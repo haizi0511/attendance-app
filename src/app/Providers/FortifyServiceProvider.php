@@ -40,6 +40,15 @@ class FortifyServiceProvider extends ServiceProvider
                 return view('user.login');
             });
 
+            $this->app->singleton(RegisterResponse::class, function () {
+                return new class implements RegisterResponse {
+                    public function toResponse($request)
+                    {
+                        return redirect('/');
+                    }
+                };
+            });
+
             RateLimiter::for('login', function (Request $request) {
                 $email = (string) $request->email;
 

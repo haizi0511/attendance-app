@@ -11,9 +11,9 @@ class AttendanceRequest extends Model
     protected $fillable = [
         'attendance_id',
         'status',
-    ]
+    ];
 
-    public function attendances()
+    public function attendance()
     {
         return $this->belongsTo(Attendance::class);
     }

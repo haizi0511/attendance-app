@@ -4,8 +4,8 @@
 </form>
 <ul  class="header-nav">
     @auth
-    <li><a href="/mypage" class="header__mypage-button">勤怠一覧</a></li>
-    <li><a href="/sell" class="header__sell-button">申請</a></li>
+    <li><a href="/attendance/list" class="header__mypage-button">勤怠一覧</a></li>
+    <li><a href="/attendance_request/list" class="header__request-button">申請</a></li>
     <li class="header-nav__item">
         <form class="form" action="/logout" method="post">
             @csrf

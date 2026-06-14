@@ -1,3 +1,17 @@
+.user-header {
+    width: 100%;
+    background: #000;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-header__logo {
+    height: 32px;
+}
+
+
 .register-form__content {
     margin: 0 auto;
     padding: 30px 15px;
@@ -55,11 +69,11 @@
 
 .form__button-submit {
     padding: 10px;
-    width: 30%;
+    width: 70%;
     height: 50px;
     border: none;
     border-radius: 3px;
-    background: #ff5555;
+    background: #000000;
     color: #fff;
     cursor: pointer;
 }
